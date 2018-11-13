@@ -1,5 +1,5 @@
 -- Adminer 4.6.3 MySQL dump
-
+USE DATABASE doctordb;
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
