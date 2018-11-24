@@ -1,2 +1,8 @@
-SIEMAData/target/*
-SIEMA_APP/target/*
+SiemaApp/SiemaApp-ejb/target/*
+SiemaApp/SiemaApp-ear/target/*
+SiemaApp/SiemaApp-web/target/*
+SiemaApp/SiemaApp-ejb/nb-configuration.xml
+SiemaApp/SiemaApp-web/nb-configuration.xml
+SiemaApp/SiemaApp-ear/nb-configuration.xml
+
+

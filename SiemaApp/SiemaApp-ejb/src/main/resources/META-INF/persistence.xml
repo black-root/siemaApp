@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ues.edu.sv.prn335_SiemaApp-ejb_ejb_1.0-SNAPSHOTPU" transaction-type="JTA">
+    <jta-data-source>jdni_siema</jta-data-source>
+    <class>ues.edu.sv.prn335.entities.Cita</class>
+    <class>ues.edu.sv.prn335.entities.ContactoProfesionalSalud</class>
+    <class>ues.edu.sv.prn335.entities.Especialidad</class>
+    <class>ues.edu.sv.prn335.entities.EspecialidadPorProfesional</class>
+    <class>ues.edu.sv.prn335.entities.ExpedienteClinico</class>
+    <class>ues.edu.sv.prn335.entities.HistoriaClinica</class>
+    <class>ues.edu.sv.prn335.entities.Medicamento</class>
+    <class>ues.edu.sv.prn335.entities.MedicamentosPorReceta</class>
+    <class>ues.edu.sv.prn335.entities.Paciente</class>
+    <class>ues.edu.sv.prn335.entities.Profesion</class>
+    <class>ues.edu.sv.prn335.entities.ProfesionalSalud</class>
+    <class>ues.edu.sv.prn335.entities.Receta</class>
+    <class>ues.edu.sv.prn335.entities.TipoEstadoReceta</class>
+    <class>ues.edu.sv.prn335.entities.TipoMedicamento</class>
+    <class>ues.edu.sv.prn335.entities.TipoReceta</class>
+    <class>ues.edu.sv.prn335.entities.TratamientoMedico</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>
