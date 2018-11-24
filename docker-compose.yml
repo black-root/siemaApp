@@ -1,19 +1,23 @@
-version: '3'
-
+version: '3.5'
 services:
-  mariadb:
-    build: './MariaDB/.'
-    image: mariadb:api_image
-    container_name: 'api_container'
-    restart: always
-    environment:
-      - 'MYSQL_ROOT_PASSWORD=1234'
-      - 'MYSQL_USER=user'
-      - 'MYSQL_PASSWORD=1234'
-    ports:
-      - '3306:3306'
-    volumes:
-      - mariadb_data:/var/lib/mysql
+    marmantenimiento:
+        image: 'mariadbapi'
+        build: ./MariaDB/.
+        container_name: 'cmariaapi'
+        environment: 
+            - 'MYSQL_ROOT_PASSWORD=1234'
+        ports:
+            - '3306:3306'
+        volumes:
+            - /home/mariadbSiemaVol:/var/lib/mysql
+        networks: 
+            mantenimiento_net:
+                ipv4_address: 172.25.0.28
 
-volumes:
-  mariadb_data:
+networks: 
+    mantenimiento_net:
+        ipam:
+            driver: default
+            config:
+            - subnet: 172.25.0.0/16
+
