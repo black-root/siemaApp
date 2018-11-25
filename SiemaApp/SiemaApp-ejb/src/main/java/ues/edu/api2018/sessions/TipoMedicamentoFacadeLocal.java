@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ues.edu.api2018.sessions;
+
+import java.util.List;
+import javax.ejb.Local;
+import ues.edu.api2018.entities.TipoMedicamento;
+
+/**
+ *
+ * @author debianyisus
+ */
+@Local
+public interface TipoMedicamentoFacadeLocal {
+
+    void create(TipoMedicamento tipoMedicamento);
+
+    void edit(TipoMedicamento tipoMedicamento);
+
+    void remove(TipoMedicamento tipoMedicamento);
+
+    TipoMedicamento find(Object id);
+
+    List<TipoMedicamento> findAll();
+
+    List<TipoMedicamento> findRange(int[] range);
+
+    int count();
+    
+}
