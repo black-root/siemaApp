@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ws.rest.server;
+package ues.edu.sv.api2018.wr.rest.server;
+
 import javax.ws.rs.core.Application;
 import java.util.Set;
 /**
@@ -21,6 +22,6 @@ public class ApplicationConfig extends Application{
     }
     
     private void addRestResourceClasses(Set<Class<?>> resources){
-        resources.add(ws.rest.server.TipoCaracteristicaResource.class);
+        resources.add(ues.edu.sv.api2018.wr.rest.server.ProfesionalSaludRest.class);
     }
 }
