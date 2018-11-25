@@ -8,7 +8,7 @@ import java.util.Set;
 import javax.ws.rs.core.Application;
 
 @javax.ws.rs.ApplicationPath("webresources")
-public class ApplicationConfig extends Application{
+public class ApplicationConfig extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
@@ -18,5 +18,7 @@ public class ApplicationConfig extends Application{
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(org.netbeans.rest.application.config.NewCrossOriginResourceSharingFilter.class);
+        resources.add(ues.edu.sv.prn335.resource.ProfesionalSaludRest.class);
     }
 }
