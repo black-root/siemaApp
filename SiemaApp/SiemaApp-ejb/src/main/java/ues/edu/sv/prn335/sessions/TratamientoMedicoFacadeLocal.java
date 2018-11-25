@@ -14,20 +14,5 @@ import ues.edu.sv.prn335.entities.TratamientoMedico;
  * @author debianyisus
  */
 @Local
-public interface TratamientoMedicoFacadeLocal {
-
-    void create(TratamientoMedico tratamientoMedico);
-
-    void edit(TratamientoMedico tratamientoMedico);
-
-    void remove(TratamientoMedico tratamientoMedico);
-
-    TratamientoMedico find(Object id);
-
-    List<TratamientoMedico> findAll();
-
-    List<TratamientoMedico> findRange(int[] range);
-
-    int count();
-    
+public interface TratamientoMedicoFacadeLocal extends AbstractFacadeInterface<TratamientoMedico>{
 }

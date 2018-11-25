@@ -14,20 +14,5 @@ import ues.edu.sv.prn335.entities.TipoEstadoReceta;
  * @author debianyisus
  */
 @Local
-public interface TipoEstadoRecetaFacadeLocal {
-
-    void create(TipoEstadoReceta tipoEstadoReceta);
-
-    void edit(TipoEstadoReceta tipoEstadoReceta);
-
-    void remove(TipoEstadoReceta tipoEstadoReceta);
-
-    TipoEstadoReceta find(Object id);
-
-    List<TipoEstadoReceta> findAll();
-
-    List<TipoEstadoReceta> findRange(int[] range);
-
-    int count();
-    
+public interface TipoEstadoRecetaFacadeLocal extends AbstractFacadeInterface<TipoEstadoReceta>{
 }

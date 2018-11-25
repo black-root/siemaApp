@@ -14,20 +14,5 @@ import ues.edu.sv.prn335.entities.TipoMedicamento;
  * @author debianyisus
  */
 @Local
-public interface TipoMedicamentoFacadeLocal {
-
-    void create(TipoMedicamento tipoMedicamento);
-
-    void edit(TipoMedicamento tipoMedicamento);
-
-    void remove(TipoMedicamento tipoMedicamento);
-
-    TipoMedicamento find(Object id);
-
-    List<TipoMedicamento> findAll();
-
-    List<TipoMedicamento> findRange(int[] range);
-
-    int count();
-    
+public interface TipoMedicamentoFacadeLocal extends AbstractFacadeInterface<TipoMedicamento>{
 }

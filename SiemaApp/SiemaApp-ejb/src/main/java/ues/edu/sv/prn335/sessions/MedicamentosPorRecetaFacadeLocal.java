@@ -14,20 +14,5 @@ import ues.edu.sv.prn335.entities.MedicamentosPorReceta;
  * @author debianyisus
  */
 @Local
-public interface MedicamentosPorRecetaFacadeLocal {
-
-    void create(MedicamentosPorReceta medicamentosPorReceta);
-
-    void edit(MedicamentosPorReceta medicamentosPorReceta);
-
-    void remove(MedicamentosPorReceta medicamentosPorReceta);
-
-    MedicamentosPorReceta find(Object id);
-
-    List<MedicamentosPorReceta> findAll();
-
-    List<MedicamentosPorReceta> findRange(int[] range);
-
-    int count();
-    
+public interface MedicamentosPorRecetaFacadeLocal extends AbstractFacadeInterface<MedicamentosPorReceta>{
 }

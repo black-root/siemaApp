@@ -5,7 +5,6 @@
  */
 package ues.edu.sv.prn335.sessions;
 
-import java.util.List;
 import javax.ejb.Local;
 import ues.edu.sv.prn335.entities.HistoriaClinica;
 
@@ -14,20 +13,5 @@ import ues.edu.sv.prn335.entities.HistoriaClinica;
  * @author debianyisus
  */
 @Local
-public interface HistoriaClinicaFacadeLocal {
-
-    void create(HistoriaClinica historiaClinica);
-
-    void edit(HistoriaClinica historiaClinica);
-
-    void remove(HistoriaClinica historiaClinica);
-
-    HistoriaClinica find(Object id);
-
-    List<HistoriaClinica> findAll();
-
-    List<HistoriaClinica> findRange(int[] range);
-
-    int count();
-    
+public interface HistoriaClinicaFacadeLocal extends AbstractFacadeInterface<HistoriaClinica>{
 }

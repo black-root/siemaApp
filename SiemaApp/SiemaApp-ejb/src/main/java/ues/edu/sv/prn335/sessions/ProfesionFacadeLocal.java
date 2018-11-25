@@ -14,20 +14,5 @@ import ues.edu.sv.prn335.entities.Profesion;
  * @author debianyisus
  */
 @Local
-public interface ProfesionFacadeLocal {
-
-    void create(Profesion profesion);
-
-    void edit(Profesion profesion);
-
-    void remove(Profesion profesion);
-
-    Profesion find(Object id);
-
-    List<Profesion> findAll();
-
-    List<Profesion> findRange(int[] range);
-
-    int count();
-    
+public interface ProfesionFacadeLocal extends AbstractFacadeInterface<Profesion>{
 }

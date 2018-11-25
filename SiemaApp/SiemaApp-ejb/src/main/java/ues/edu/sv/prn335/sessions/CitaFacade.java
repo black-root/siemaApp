@@ -28,5 +28,5 @@ public class CitaFacade extends AbstractFacade<Cita> implements CitaFacadeLocal 
     public CitaFacade() {
         super(Cita.class);
     }
-    
+ 
 }

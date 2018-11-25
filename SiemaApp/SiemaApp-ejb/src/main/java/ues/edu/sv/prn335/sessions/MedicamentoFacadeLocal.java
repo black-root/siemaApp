@@ -14,20 +14,6 @@ import ues.edu.sv.prn335.entities.Medicamento;
  * @author debianyisus
  */
 @Local
-public interface MedicamentoFacadeLocal {
+public interface MedicamentoFacadeLocal extends AbstractFacadeInterface<Medicamento>{
 
-    void create(Medicamento medicamento);
-
-    void edit(Medicamento medicamento);
-
-    void remove(Medicamento medicamento);
-
-    Medicamento find(Object id);
-
-    List<Medicamento> findAll();
-
-    List<Medicamento> findRange(int[] range);
-
-    int count();
-    
 }

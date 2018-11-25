@@ -7,6 +7,7 @@ package ues.edu.sv.prn335.sessions;
 
 import java.util.List;
 import javax.ejb.Local;
+import ues.edu.sv.prn335.entities.Cita;
 import ues.edu.sv.prn335.entities.Especialidad;
 
 /**
@@ -14,20 +15,5 @@ import ues.edu.sv.prn335.entities.Especialidad;
  * @author debianyisus
  */
 @Local
-public interface EspecialidadFacadeLocal {
-
-    void create(Especialidad especialidad);
-
-    void edit(Especialidad especialidad);
-
-    void remove(Especialidad especialidad);
-
-    Especialidad find(Object id);
-
-    List<Especialidad> findAll();
-
-    List<Especialidad> findRange(int[] range);
-
-    int count();
-    
+public interface EspecialidadFacadeLocal extends AbstractFacadeInterface<Especialidad>{
 }
