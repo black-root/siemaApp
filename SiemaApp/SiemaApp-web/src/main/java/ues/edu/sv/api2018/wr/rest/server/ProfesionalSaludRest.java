@@ -21,35 +21,49 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import ues.edu.api2018.entities.ProfesionalSalud;
 import ues.edu.api2018.sessions.ProfesionalSaludFacadeLocal;
+
 /**
  *
  * @author debianyisus
  */
 @Path("profesionalsalud")
-public class ProfesionalSaludRest implements Serializable{
-    
+public class ProfesionalSaludRest implements Serializable {
+
     @EJB
     private ProfesionalSaludFacadeLocal profesionalSaludFacade;
-    
+
     @GET
     @Produces({MediaType.APPLICATION_JSON + "; charset=utf-8"})
-    public List<ProfesionalSalud> findAll(){
-       List salida = null;
-       try{
-           if(profesionalSaludFacade != null){
-               salida = profesionalSaludFacade.findAll();
-           }
-       }catch(Exception ex){
-           Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);
-       } finally{
-           if(salida == null){
-               salida = new ArrayList();
-           }
-       }
-       for(int i=0; i< salida.size();i++){
-           System.out.println("SALIDA" +salida.get(i));
-       }
-       return salida;
+    public List<ProfesionalSalud> findAll() {
+        List salida = null;
+        try {
+            if (profesionalSaludFacade != null) {
+                salida = profesionalSaludFacade.findAll();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        } finally {
+            if (salida == null) {
+                salida = new ArrayList();
+            }
+        }
+        return salida;
     }
-    
+
+    @Path("count")
+    @GET
+    @Produces({MediaType.TEXT_PLAIN})
+    public Integer count() {
+
+        try {
+            if (profesionalSaludFacade != null) {
+                return profesionalSaludFacade.count();
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+        }
+        return 0;
+    }
+
 }
