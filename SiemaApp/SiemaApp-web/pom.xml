@@ -79,6 +79,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>SiemaApp-ejb</artifactId>
             <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax</groupId>

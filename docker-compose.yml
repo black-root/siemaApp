@@ -13,18 +13,7 @@ services:
         networks: 
             mantenimiento_net:
                 ipv4_address: 172.25.0.28
-    server:
-        image: 'payarapi'
-        build: ./Payara/.
-        container_name: 'cpayarapi'
-        ports:
-            - '4848:4848'
-            - '8080:8080'
-            - '8181:8181'
-        networks:
-            mantenimiento_net:
-                ipv4_address: 172.25.0.56
-
+ 
 networks: 
     mantenimiento_net:
         ipam:
