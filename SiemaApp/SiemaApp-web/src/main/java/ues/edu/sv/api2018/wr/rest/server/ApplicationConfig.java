@@ -22,6 +22,7 @@ public class ApplicationConfig extends Application{
     }
     
     private void addRestResourceClasses(Set<Class<?>> resources){
+        resources.add(ues.edu.sv.api2018.wr.rest.server.PacienteRest.class);
         resources.add(ues.edu.sv.api2018.wr.rest.server.ProfesionalSaludRest.class);
     }
 }

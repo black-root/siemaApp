@@ -8,6 +8,7 @@ package ues.edu.api2018.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -302,7 +303,8 @@ public class Paciente implements Serializable {
     public void setReligion(String religion) {
         this.religion = religion;
     }
-
+    
+    @JsonbTransient
     @XmlTransient
     public List<Receta> getRecetaList() {
         return recetaList;
@@ -311,7 +313,7 @@ public class Paciente implements Serializable {
     public void setRecetaList(List<Receta> recetaList) {
         this.recetaList = recetaList;
     }
-
+    @JsonbTransient
     @XmlTransient
     public List<ExpedienteClinico> getExpedienteClinicoList() {
         return expedienteClinicoList;

@@ -8,6 +8,7 @@ package ues.edu.api2018.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -172,6 +173,7 @@ public class Receta implements Serializable {
         this.tipoEstadoReceta = tipoEstadoReceta;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<TratamientoMedico> getTratamientoMedicoList() {
         return tratamientoMedicoList;
@@ -181,6 +183,7 @@ public class Receta implements Serializable {
         this.tratamientoMedicoList = tratamientoMedicoList;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<MedicamentosPorReceta> getMedicamentosPorRecetaList() {
         return medicamentosPorRecetaList;
