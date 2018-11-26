@@ -39,9 +39,6 @@ public class PacienteRest implements Serializable{
                salida = new ArrayList();
            }
        }
-       for(int i=0; i< salida.size();i++){
-           System.out.println("SALIDA" +salida.get(i));
-       }
        return salida;
     }
     
