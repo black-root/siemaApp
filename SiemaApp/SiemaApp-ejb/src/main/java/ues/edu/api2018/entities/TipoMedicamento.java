@@ -7,6 +7,7 @@ package ues.edu.api2018.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -108,6 +109,7 @@ public class TipoMedicamento implements Serializable {
         this.descripcionGeneral = descripcionGeneral;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<Medicamento> getMedicamentoList() {
         return medicamentoList;
