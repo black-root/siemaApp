@@ -8,6 +8,7 @@ package ues.edu.api2018.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -222,6 +223,7 @@ public class ProfesionalSalud implements Serializable {
         this.password = password;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<Receta> getRecetaList() {
         return recetaList;
@@ -231,6 +233,7 @@ public class ProfesionalSalud implements Serializable {
         this.recetaList = recetaList;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<EspecialidadPorProfesional> getEspecialidadPorProfesionalList() {
         return especialidadPorProfesionalList;
@@ -240,6 +243,7 @@ public class ProfesionalSalud implements Serializable {
         this.especialidadPorProfesionalList = especialidadPorProfesionalList;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<ContactoProfesionalSalud> getContactoProfesionalSaludList() {
         return contactoProfesionalSaludList;
@@ -249,6 +253,7 @@ public class ProfesionalSalud implements Serializable {
         this.contactoProfesionalSaludList = contactoProfesionalSaludList;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<HistoriaClinica> getHistoriaClinicaList() {
         return historiaClinicaList;
@@ -258,6 +263,7 @@ public class ProfesionalSalud implements Serializable {
         this.historiaClinicaList = historiaClinicaList;
     }
 
+    @JsonbTransient
     @XmlTransient
     public List<Cita> getCitaList() {
         return citaList;
@@ -291,5 +297,5 @@ public class ProfesionalSalud implements Serializable {
     public String toString() {
         return "ues.edu.api2018.ProfesionalSalud[ idProfesionalSalud=" + idProfesionalSalud + " ]";
     }
-    
+
 }
