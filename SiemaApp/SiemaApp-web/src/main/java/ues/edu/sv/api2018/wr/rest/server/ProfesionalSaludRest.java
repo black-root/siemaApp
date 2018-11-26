@@ -32,7 +32,7 @@ public class ProfesionalSaludRest implements Serializable{
     private ProfesionalSaludFacadeLocal profesionalSaludFacade;
     
     @GET
-    @Produces({MediaType.APPLICATION_JSON + "charset-utf-8"})
+    @Produces({MediaType.APPLICATION_JSON + "; charset=utf-8"})
     public List<ProfesionalSalud> findAll(){
        List salida = null;
        try{

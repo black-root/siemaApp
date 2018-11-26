@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.ExpedienteClinico;
  * @author debianyisus
  */
 @Local
-public interface ExpedienteClinicoFacadeLocal {
-
-    void create(ExpedienteClinico expedienteClinico);
-
-    void edit(ExpedienteClinico expedienteClinico);
-
-    void remove(ExpedienteClinico expedienteClinico);
-
-    ExpedienteClinico find(Object id);
-
-    List<ExpedienteClinico> findAll();
-
-    List<ExpedienteClinico> findRange(int[] range);
-
-    int count();
-    
+public interface ExpedienteClinicoFacadeLocal extends AbstractFacadeInterface<ExpedienteClinico> {
 }

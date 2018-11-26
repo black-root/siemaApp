@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.Medicamento;
  * @author debianyisus
  */
 @Local
-public interface MedicamentoFacadeLocal {
-
-    void create(Medicamento medicamento);
-
-    void edit(Medicamento medicamento);
-
-    void remove(Medicamento medicamento);
-
-    Medicamento find(Object id);
-
-    List<Medicamento> findAll();
-
-    List<Medicamento> findRange(int[] range);
-
-    int count();
-    
+public interface MedicamentoFacadeLocal extends AbstractFacadeInterface<Medicamento>{
 }

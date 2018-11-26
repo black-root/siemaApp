@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.Especialidad;
  * @author debianyisus
  */
 @Local
-public interface EspecialidadFacadeLocal {
-
-    void create(Especialidad especialidad);
-
-    void edit(Especialidad especialidad);
-
-    void remove(Especialidad especialidad);
-
-    Especialidad find(Object id);
-
-    List<Especialidad> findAll();
-
-    List<Especialidad> findRange(int[] range);
-
-    int count();
-    
+public interface EspecialidadFacadeLocal extends AbstractFacadeInterface<Especialidad>{
 }

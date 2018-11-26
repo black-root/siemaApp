@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.HistoriaClinica;
  * @author debianyisus
  */
 @Local
-public interface HistoriaClinicaFacadeLocal {
-
-    void create(HistoriaClinica historiaClinica);
-
-    void edit(HistoriaClinica historiaClinica);
-
-    void remove(HistoriaClinica historiaClinica);
-
-    HistoriaClinica find(Object id);
-
-    List<HistoriaClinica> findAll();
-
-    List<HistoriaClinica> findRange(int[] range);
-
-    int count();
-    
+public interface HistoriaClinicaFacadeLocal extends AbstractFacadeInterface<HistoriaClinica> {
 }

@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.ProfesionalSalud;
  * @author debianyisus
  */
 @Local
-public interface ProfesionalSaludFacadeLocal {
-
-    void create(ProfesionalSalud profesionalSalud);
-
-    void edit(ProfesionalSalud profesionalSalud);
-
-    void remove(ProfesionalSalud profesionalSalud);
-
-    ProfesionalSalud find(Object id);
-
-    List<ProfesionalSalud> findAll();
-
-    List<ProfesionalSalud> findRange(int[] range);
-
-    int count();
-    
+public interface ProfesionalSaludFacadeLocal extends AbstractFacadeInterface<ProfesionalSalud> {
 }

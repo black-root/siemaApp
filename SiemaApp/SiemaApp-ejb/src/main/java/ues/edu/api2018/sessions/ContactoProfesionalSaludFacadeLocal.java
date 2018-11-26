@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.ContactoProfesionalSalud;
  * @author debianyisus
  */
 @Local
-public interface ContactoProfesionalSaludFacadeLocal {
-
-    void create(ContactoProfesionalSalud contactoProfesionalSalud);
-
-    void edit(ContactoProfesionalSalud contactoProfesionalSalud);
-
-    void remove(ContactoProfesionalSalud contactoProfesionalSalud);
-
-    ContactoProfesionalSalud find(Object id);
-
-    List<ContactoProfesionalSalud> findAll();
-
-    List<ContactoProfesionalSalud> findRange(int[] range);
-
-    int count();
-    
+public interface ContactoProfesionalSaludFacadeLocal extends AbstractFacadeInterface<ContactoProfesionalSalud> {
 }

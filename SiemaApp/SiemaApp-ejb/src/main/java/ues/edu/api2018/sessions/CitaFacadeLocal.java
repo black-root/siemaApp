@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.Cita;
  * @author debianyisus
  */
 @Local
-public interface CitaFacadeLocal {
-
-    void create(Cita cita);
-
-    void edit(Cita cita);
-
-    void remove(Cita cita);
-
-    Cita find(Object id);
-
-    List<Cita> findAll();
-
-    List<Cita> findRange(int[] range);
-
-    int count();
-    
+public interface CitaFacadeLocal extends AbstractFacadeInterface<Cita>{
 }

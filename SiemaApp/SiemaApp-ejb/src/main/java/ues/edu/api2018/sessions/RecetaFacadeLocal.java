@@ -14,20 +14,5 @@ import ues.edu.api2018.entities.Receta;
  * @author debianyisus
  */
 @Local
-public interface RecetaFacadeLocal {
-
-    void create(Receta receta);
-
-    void edit(Receta receta);
-
-    void remove(Receta receta);
-
-    Receta find(Object id);
-
-    List<Receta> findAll();
-
-    List<Receta> findRange(int[] range);
-
-    int count();
-    
+public interface RecetaFacadeLocal extends AbstractFacadeInterface<Receta>{
 }
