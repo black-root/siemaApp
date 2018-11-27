@@ -11,8 +11,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -68,50 +71,100 @@ public class ProfesionalSaludRest implements Serializable {
                 .header("No se encontraron Registros", profesionalSaludFacade)
                 .build();
     }
-    
-   
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("find/{id}")
     public ProfesionalSalud findById(
             @PathParam("id") int id) {
-        try{
-            if(profesionalSaludFacade != null){
+        try {
+            if (profesionalSaludFacade != null) {
                 return profesionalSaludFacade.find(id);
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
         return new ProfesionalSalud();
     }
-    
-        /**
+
+    /**
      * Crear registros
-     * @param registro a crear 
+     *
+     * @param registro a crear
      * @return la entidad creada
      */
     @POST
     @Produces({MediaType.APPLICATION_JSON})
-    public ProfesionalSalud crear(ProfesionalSalud registro){
-       
-        if(registro != null && registro.getIdProfesionalSalud()== null){
+    public ProfesionalSalud crear(ProfesionalSalud registro) {
+
+        if (registro != null && registro.getIdProfesionalSalud() == null) {
             try {
                 if (profesionalSaludFacade != null) {
                     ProfesionalSalud nuevo = profesionalSaludFacade.create(registro);
-                    if(nuevo!=null){
+                    if (nuevo != null) {
                         return nuevo;
-                    }else{
+                    } else {
                         System.err.println("facade nulo");
                     }
                 }
             } catch (Exception e) {
-                System.out.println("ex: "+e);
+                System.out.println("ex: " + e);
             }
         }
         return new ProfesionalSalud();
-       
+
     }
-    
-    
+
+    /**
+     * Editar registros
+     *
+     * @param registro, parametroa modificar
+     * @return registro modificado
+     */
+    @PUT
+    @Produces({MediaType.APPLICATION_JSON})
+    public ProfesionalSalud editar(ProfesionalSalud registro) {
+        if (registro != null) {
+            try {
+                if (profesionalSaludFacade != null && profesionalSaludFacade.find(registro.getIdProfesionalSalud()) != null) {
+                    ProfesionalSalud nuevo = profesionalSaludFacade.edit(registro);
+                    if (nuevo != null) {
+                        return nuevo;
+                    }
+                } else {
+                    System.out.println("no existe ese registro");
+                }
+            } catch (Exception e) {
+                System.out.println("ex: " + e);
+            }
+        }
+        return new ProfesionalSalud();
+    }
+
+    /**
+     * Eliminar registros
+     *
+     * @param id identificadir del registro a eliminar
+     * @return entidad eliminada
+     */
+    @DELETE
+    @Path("{IdProfesionalSalud}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ProfesionalSalud eliminar(@PathParam("IdProfesionalSalud") int id) {
+        if (id > 0) {
+            try {
+                if (profesionalSaludFacade != null) {
+                    ProfesionalSalud die = profesionalSaludFacade.remove(profesionalSaludFacade.find(id));
+                    if (die != null) {
+                        return die;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("ex: " + e);
+            }
+        }
+        return new ProfesionalSalud();
+    }
 
 }
