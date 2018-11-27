@@ -1,1 +1,10 @@
 aqui va todo el frontend o los archivos que gridbox genere, en todo caso es la rama para el frontend.
+
+
+colores:
+fondo: #f6fcff
+secundario: #7ed6d8
+
+detalles:
+negativo: #fe787f
+positivo: #1d4c68
