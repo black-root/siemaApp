@@ -7,19 +7,15 @@ package ues.edu.sv.api2018.wr.rest.server;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import ues.edu.api2018.entities.ProfesionalSalud;
@@ -76,7 +72,7 @@ public class ProfesionalSaludRest implements Serializable {
    
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    @Path("{id}")
+    @Path("find/{id}")
     public ProfesionalSalud findById(
             @PathParam("id") int id) {
         try{
@@ -88,5 +84,34 @@ public class ProfesionalSaludRest implements Serializable {
         }
         return new ProfesionalSalud();
     }
+    
+        /**
+     * Crear registros
+     * @param registro a crear 
+     * @return la entidad creada
+     */
+    @POST
+    @Produces({MediaType.APPLICATION_JSON})
+    public ProfesionalSalud crear(ProfesionalSalud registro){
+       
+        if(registro != null && registro.getIdProfesionalSalud()== null){
+            try {
+                if (profesionalSaludFacade != null) {
+                    ProfesionalSalud nuevo = profesionalSaludFacade.create(registro);
+                    if(nuevo!=null){
+                        return nuevo;
+                    }else{
+                        System.err.println("facade nulo");
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("ex: "+e);
+            }
+        }
+        return new ProfesionalSalud();
+       
+    }
+    
+    
 
 }
