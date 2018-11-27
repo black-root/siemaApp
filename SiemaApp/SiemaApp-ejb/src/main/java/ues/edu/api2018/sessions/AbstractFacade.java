@@ -5,15 +5,14 @@
  */
 package ues.edu.api2018.sessions;
 
-
 import java.util.List;
+import javax.annotation.PreDestroy;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-
 
 /**
  *
@@ -55,9 +54,16 @@ public abstract class AbstractFacade<T> {
             return null;
         }
     }
-
+    @PreDestroy  
     public T find(Object id) {
-        return getEntityManager().find(entityClass, id);
+        try {
+            if (id != null) {
+                return getEntityManager().find(entityClass, id);
+            }
+        } catch (Exception e) {
+            System.out.println("ex: " + e);
+        }
+        return null;
     }
 
     public boolean crear(T entity) {
@@ -83,12 +89,9 @@ public abstract class AbstractFacade<T> {
     }
 
     public List<T> findAll() {
-        CriteriaBuilder builder = getEntityManager().getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery(entityClass);
-        Root<T> en = query.from(entityClass);
-        query.select(en);
-        TypedQuery<T> q = getEntityManager().createQuery(query);
-        return q.getResultList();
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(entityClass));
+        return getEntityManager().createQuery(cq).getResultList();
     }
 
     public int count() {

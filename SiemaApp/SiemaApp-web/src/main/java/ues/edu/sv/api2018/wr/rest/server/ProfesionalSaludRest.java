@@ -7,6 +7,7 @@ package ues.edu.sv.api2018.wr.rest.server;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +52,7 @@ public class ProfesionalSaludRest implements Serializable {
         }
         return salida;
     }
-    
+
     @GET
     @Path("count")
     @Produces({MediaType.APPLICATION_JSON})
@@ -71,22 +72,21 @@ public class ProfesionalSaludRest implements Serializable {
                 .header("No se encontraron Registros", profesionalSaludFacade)
                 .build();
     }
-
-    /*
-   @GET
-    @Path("{id}")
+    
+   
+    @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public Response findId(@PathParam("id") Integer identificador) {    
-
-         ProfesionalSalud buscado = profesionalSaludFacade.find(identificador);
-
-        try {
-            if (identificador >= 0 && buscado != null) {
-                return Response.status(Response.Status.OK).entity(buscado).build();
+    @Path("{id}")
+    public ProfesionalSalud findById(
+            @PathParam("id") int id) {
+        try{
+            if(profesionalSaludFacade != null){
+                return profesionalSaludFacade.find(id);
             }
-        } catch (Exception e) {
+        }catch(Exception ex){
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
+        return new ProfesionalSalud();
+    }
 
-        return Response.status(Response.Status.BAD_REQUEST).header("no se encontro registro:", identificador).build();
-    }*/
 }
