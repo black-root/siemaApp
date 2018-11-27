@@ -1,0 +1,175 @@
+:root {
+	--input-padding-x: 1.5rem;
+	--input-padding-y: 0.75rem;
+}
+
+.card-signin {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: initial;
+	border-right-style: initial;
+	border-bottom-style: initial;
+	border-left-style: initial;
+	border-top-color: initial;
+	border-right-color: initial;
+	border-bottom-color: initial;
+	border-left-color: initial;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0.5rem 1rem 0px;
+}
+
+.card-signin .card-title {
+	margin-bottom: 2rem;
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+	padding-top: 2rem;
+	padding-right: 2rem;
+	padding-bottom: 2rem;
+	padding-left: 2rem;
+}
+
+.form-signin {
+	width: 100%;
+}
+
+.form-signin .btn {
+	font-size: 80%;
+	border-top-left-radius: 5rem;
+	border-top-right-radius: 5rem;
+	border-bottom-right-radius: 5rem;
+	border-bottom-left-radius: 5rem;
+	letter-spacing: 0.1rem;
+	font-weight: bold;
+	padding-top: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 1rem;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+	transition-property: all;
+}
+
+.form-label-group {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.form-label-group > label {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	width: 100%;
+	margin-bottom: 0px;
+	line-height: 1.5;
+	color: rgb(73, 80, 87);
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+	border-bottom-left-radius: 0.25rem;
+	transition-duration: 0.1s;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;
+	transition-property: all;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+.form-label-group input::placeholder {
+	color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+	padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+	padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+	padding-top: calc(var(--input-padding-y) / 3);
+	padding-bottom: calc(var(--input-padding-y) / 3);
+	font-size: 12px;
+	color: rgb(119, 119, 119);
+}
+
+
+
+.c12649 {
+	color: black;
+}
+
+.c12672 {
+	color: black;
+	width: 291px;
+	height: 186px;
+	right: 0px;
+	left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 39px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	top: 0px;
+	bottom: 0px;
+	display: block;
+	position: static;
+	float: none;
+}
+
+.c12672:nth-of-type(2n) {
+	float: right;
+}
+
+.hc-state {
+	float: right;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.colorPropio{
+
+	background: #7ED6D8;	
+}
+
+.colorPropio:hover{
+	background: #20566A
+}
