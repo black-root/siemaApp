@@ -9,7 +9,7 @@ services:
         ports:
             - '3306:3306'
         volumes:
-            - /home/mariadbSiemaVol:/var/lib/mysql
+            - ../mariadbSiemaVol:/var/lib/mysql
         networks: 
             mantenimiento_net:
                 ipv4_address: 172.25.0.28
