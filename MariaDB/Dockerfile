@@ -1,4 +1,4 @@
-FROM mariadb:10.3.5
+FROM mariadb:latest
 
 LABEL mantainer "black-root ronald_reir21@hotmail.com"
 

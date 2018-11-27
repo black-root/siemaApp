@@ -13,7 +13,7 @@ services:
         networks: 
             mantenimiento_net:
                 ipv4_address: 172.25.0.28
-
+ 
 networks: 
     mantenimiento_net:
         ipam:
