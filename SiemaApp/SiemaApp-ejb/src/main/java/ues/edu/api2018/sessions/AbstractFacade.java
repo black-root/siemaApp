@@ -112,7 +112,16 @@ public abstract class AbstractFacade<T> {
         TypedQuery<T> q = getEntityManager().createQuery(query);
         return q.getResultList();
     }
-
+ public List<T> findWithUsuario(String usuario) {
+        String filter = "%" + usuario.toLowerCase() + "%";
+        CriteriaBuilder builder = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(entityClass);
+        Root<T> en = query.from(entityClass);
+        Predicate condicion = builder.or(builder.like(builder.lower(en.<String>get("usuario")), filter));
+        query.select(en).where(condicion);
+        TypedQuery<T> q = getEntityManager().createQuery(query);
+        return q.getResultList();
+    }
     public List<T> findRange(int min, int pagesize) {
 
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
