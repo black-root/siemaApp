@@ -13,6 +13,18 @@ services:
         networks: 
             mantenimiento_net:
                 ipv4_address: 172.25.0.28
+
+    server:
+        image: 'payarafullapi'
+        build: ./Payara/.
+        container_name: 'cpayarapi'
+        ports:
+                - "8080:8080"
+                - "4848:4848"
+                - "8181:8181"
+        networks:
+            mantenimiento_net:
+                ipv4_address: 172.25.0.56
  
 networks: 
     mantenimiento_net:
@@ -20,4 +32,3 @@ networks:
             driver: default
             config:
             - subnet: 172.25.0.0/16
-

@@ -31,7 +31,6 @@
     </application>
   </system-applications>
   <resources>
-    <jdbc-resource pool-name="SamplePool" jndi-name="jdbc/sample"></jdbc-resource>
     <jdbc-resource pool-name="__TimerPool" object-type="system-all" jndi-name="jdbc/__TimerPool"></jdbc-resource>
     <jdbc-resource pool-name="DerbyPool" object-type="system-all" jndi-name="jdbc/__derby"></jdbc-resource>
     <jdbc-resource pool-name="H2Pool" object-type="system-all" jndi-name="jdbc/__default"></jdbc-resource>
@@ -56,50 +55,29 @@
     <managed-executor-service object-type="system-all" jndi-name="concurrent/__defaultManagedExecutorService"></managed-executor-service>
     <managed-scheduled-executor-service object-type="system-all" jndi-name="concurrent/__defaultManagedScheduledExecutorService"></managed-scheduled-executor-service>
     <managed-thread-factory object-type="system-all" jndi-name="concurrent/__defaultManagedThreadFactory"></managed-thread-factory>
-    <jdbc-connection-pool datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" name="customerpool" res-type="javax.sql.DataSource">
-      <property name="password" value="personales21#."></property>
-      <property name="databaseName" value="customerdb"></property>
-      <property name="serverName" value="localhost"></property>
-      <property name="user" value="root"></property>
-      <property name="portNumber" value="3300"></property>
-    </jdbc-connection-pool>
-    <jdbc-connection-pool is-isolation-level-guaranteed="false" datasource-classname="org.apache.derby.jdbc.ClientDataSource" name="SamplePool" res-type="javax.sql.DataSource">
-      <property name="User" value="app"></property>
-      <property name="DatabaseName" value="sample"></property>
-      <property name="serverName" value="localhost"></property>
-      <property name="PortNumber" value="1527"></property>
-      <property name="URL" value="jdbc:derby://localhost:1527/sample"></property>
-      <property name="Password" value="app"></property>
-    </jdbc-connection-pool>
-    <jdbc-connection-pool datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" name="worldpool" res-type="javax.sql.DataSource">
-      <property name="user" value="root"></property>
-      <property name="password" value="1234"></property>
-      <property name="databaseName" value="world"></property>
-      <property name="portNumber" value="3300"></property>
-      <property name="serverName" value="localhost"></property>
-      <property name="URL" value="jdbc:mysql://localhost:3300/world"></property>
-      <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-    </jdbc-connection-pool>
-    <jdbc-resource pool-name="worldpool" jndi-name="jdni_world"></jdbc-resource>
-    <jdbc-connection-pool datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" name="siema" res-type="javax.sql.DataSource">
-      <property name="user" value="root"></property>
-      <property name="password" value="1234"></property>
+    <jdbc-connection-pool driver-classname="com.mysql.jdbc.Driver" name="siema" res-type="java.sql.Driver">
+      <property name="serverName" value="172.25.0.28"></property>
+      <property name="portNumber" value="3306"></property>
       <property name="databaseName" value="bdmedica"></property>
-      <property name="portNumber" value="33006"></property>
-      <property name="serverName" value="localhost"></property>
-      <property name="URL" value="jdbc:mysql://localhost:3306/bdmedica"></property>
       <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+      <property name="password" value="1234"></property>
+      <property name="user" value="root"></property>
+      <property name="URL" value="jdbc:mysql://172.25.0.28:3306/bdmedica"></property>
     </jdbc-connection-pool>
     <jdbc-resource pool-name="siema" jndi-name="jdni_siema"></jdbc-resource>
+    <jdbc-connection-pool datasource-classname="org.apache.derby.jdbc.ClientDataSource" name="SamplePool" res-type="javax.sql.DataSource">
+      <property name="URL" value="jdbc:derby://localhost:1527/sample"></property>
+      <property name="PortNumber" value="1527"></property>
+      <property name="Password" value="app"></property>
+      <property name="DatabaseName" value="sample"></property>
+      <property name="serverName" value="localhost"></property>
+      <property name="User" value="app"></property>
+    </jdbc-connection-pool>
+    <jdbc-resource pool-name="SamplePool" jndi-name="jdbc/sample"></jdbc-resource>
   </resources>
   <servers>
     <server config-ref="server-config" name="server">
       <application-ref ref="__admingui" virtual-servers="__asadmin"></application-ref>
-      <application-ref ref="mokito" virtual-servers="server"></application-ref>
-      <application-ref ref="Guia8" virtual-servers="server"></application-ref>
-      <application-ref ref="SiemaRest" virtual-servers="server"></application-ref>
-      <application-ref ref="siemaRest" virtual-servers="server"></application-ref>
-      <application-ref ref="SiemaApp-ear" virtual-servers="server"></application-ref>
       <resource-ref ref="jdbc/__TimerPool"></resource-ref>
       <resource-ref ref="jdbc/__default"></resource-ref>
       <resource-ref ref="jdbc/__derby"></resource-ref>
@@ -108,9 +86,8 @@
       <resource-ref ref="concurrent/__defaultManagedExecutorService"></resource-ref>
       <resource-ref ref="concurrent/__defaultManagedScheduledExecutorService"></resource-ref>
       <resource-ref ref="concurrent/__defaultManagedThreadFactory"></resource-ref>
-      <resource-ref ref="jdbc/sample"></resource-ref>
-      <resource-ref ref="jdni_world"></resource-ref>
       <resource-ref ref="jdni_siema"></resource-ref>
+      <resource-ref ref="jdbc/sample"></resource-ref>
     </server>
   </servers>
   <nodes>
@@ -165,7 +142,7 @@
       <microprofile-fault-tolerance-configuration></microprofile-fault-tolerance-configuration>
       <zendesk-support-configuration></zendesk-support-configuration>
       <stuck-threads-checker></stuck-threads-checker>
-      <phone-home-runtime-configuration phone-home-id="ca1df3ee-1b16-4b1b-9c26-1fbdcb875f6c"></phone-home-runtime-configuration>
+      <phone-home-runtime-configuration phone-home-id="43265d47-14e1-4050-a0d1-122e3997b6b7"></phone-home-runtime-configuration>
       <amx-configuration></amx-configuration>
       <jms-service default-jms-host="default_JMS_host" type="EMBEDDED">
         <jms-host port="${JMS_PROVIDER_PORT}" name="default_JMS_host" host="localhost"></jms-host>
@@ -319,7 +296,7 @@
         </transports>
       </network-config>
       <thread-pools>
-        <thread-pool name="admin-thread-pool" min-thread-pool-size="1" max-thread-pool-size="15" max-queue-size="256"></thread-pool>
+        <thread-pool name="admin-thread-pool" min-thread-pool-size="1" max-queue-size="256" max-thread-pool-size="15"></thread-pool>
         <thread-pool name="http-thread-pool"></thread-pool>
         <thread-pool name="thread-pool-1" max-thread-pool-size="200"></thread-pool>
       </thread-pools>
@@ -369,7 +346,7 @@
       </ejb-container>
       <mdb-container></mdb-container>
       <jms-service addresslist-behavior="priority" default-jms-host="default_JMS_host" type="EMBEDDED">
-        <jms-host port="${JMS_PROVIDER_PORT}" name="default_JMS_host" host="localhost"></jms-host>
+        <jms-host port="${JMS_PROVIDER_PORT}" host="localhost" name="default_JMS_host"></jms-host>
       </jms-service>
       <log-service file="${com.sun.aas.instanceRoot}/logs/server.log" log-rotation-limit-in-bytes="2000000">
         <module-log-levels></module-log-levels>
@@ -523,7 +500,7 @@
       <thread-pools>
         <thread-pool name="http-thread-pool"></thread-pool>
         <thread-pool name="thread-pool-1" min-thread-pool-size="2" max-thread-pool-size="200"></thread-pool>
-        <thread-pool name="admin-thread-pool" min-thread-pool-size="1" max-thread-pool-size="15" max-queue-size="256"></thread-pool>
+        <thread-pool name="admin-thread-pool" min-thread-pool-size="1" max-queue-size="256" max-thread-pool-size="15"></thread-pool>
       </thread-pools>
       <group-management-service>
         <failure-detection></failure-detection>
@@ -550,83 +527,5 @@
   </secure-admin>
   <deployment-groups></deployment-groups>
   <clusters></clusters>
-  <applications>
-    <application context-root="/mokito" deployment-time="782" object-type="user" directory-deployed="true" name="mokito" time-deployed="1534309979029" location="file:/home/debianyisus/NetBeansProjects/mokito/target/mokito-1.0-SNAPSHOT/">
-      <property name="archiveType" value="war"></property>
-      <property name="cdiDevModeEnabled" value="false"></property>
-      <property name="appLocation" value="file:/home/debianyisus/NetBeansProjects/mokito/target/mokito-1.0-SNAPSHOT/"></property>
-      <property name="defaultAppName" value="mokito-1.0-SNAPSHOT"></property>
-      <property name="keepSessions" value="true"></property>
-      <module name="mokito">
-        <engine sniffer="security"></engine>
-        <engine sniffer="web"></engine>
-      </module>
-    </application>
-    <application context-root="/Guia8" deployment-time="1522" object-type="user" directory-deployed="true" name="Guia8" time-deployed="1539616473620" location="file:/home/debianyisus/Documentos/ProgrmacionIII/Guia7/Guia8/target/Guia8-1.0-SNAPSHOT/">
-      <property name="archiveType" value="war"></property>
-      <property name="cdiDevModeEnabled" value="false"></property>
-      <property name="appLocation" value="file:/home/debianyisus/Documentos/ProgrmacionIII/Guia7/Guia8/target/Guia8-1.0-SNAPSHOT/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="100900222983995392"></property>
-      <property name="org.glassfish.persistence.app_name_property" value="Guia8"></property>
-      <property name="defaultAppName" value="Guia8-1.0-SNAPSHOT"></property>
-      <module name="Guia8">
-        <engine sniffer="cdi"></engine>
-        <engine sniffer="ejb"></engine>
-        <engine sniffer="security"></engine>
-        <engine sniffer="jpa"></engine>
-        <engine sniffer="web"></engine>
-      </module>
-    </application>
-    <application deployment-time="2218" context-root="/SiemaRest" object-type="user" name="SiemaRest" directory-deployed="true" location="file:/home/debianyisus/Documentos/ProgrmacionIII/Guia7/SiemaRest/target/SiemaRest-1.0-SNAPSHOT/" time-deployed="1543211359344">
-      <property name="archiveType" value="war"></property>
-      <property name="cdiDevModeEnabled" value="false"></property>
-      <property name="appLocation" value="file:/home/debianyisus/Documentos/ProgrmacionIII/Guia7/SiemaRest/target/SiemaRest-1.0-SNAPSHOT/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="101135895084138496"></property>
-      <property name="org.glassfish.persistence.app_name_property" value="SiemaRest"></property>
-      <property name="defaultAppName" value="SiemaRest-1.0-SNAPSHOT"></property>
-      <module name="SiemaRest">
-        <engine sniffer="cdi"></engine>
-        <engine sniffer="ejb"></engine>
-        <engine sniffer="security"></engine>
-        <engine sniffer="jpa"></engine>
-        <engine sniffer="web"></engine>
-      </module>
-    </application>
-    <application deployment-time="2806" context-root="/siemaRest" object-type="user" name="siemaRest" directory-deployed="true" location="file:/home/debianyisus/Documentos/siemaRest/target/siemaRest-1.0-SNAPSHOT/" time-deployed="1543241860479">
-      <property name="archiveType" value="war"></property>
-      <property name="cdiDevModeEnabled" value="false"></property>
-      <property name="appLocation" value="file:/home/debianyisus/Documentos/siemaRest/target/siemaRest-1.0-SNAPSHOT/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="101137890598780928"></property>
-      <property name="org.glassfish.persistence.app_name_property" value="siemaRest"></property>
-      <property name="defaultAppName" value="siemaRest-1.0-SNAPSHOT"></property>
-      <module name="siemaRest">
-        <engine sniffer="cdi"></engine>
-        <engine sniffer="ejb"></engine>
-        <engine sniffer="security"></engine>
-        <engine sniffer="jpa"></engine>
-        <engine sniffer="web"></engine>
-      </module>
-    </application>
-    <application deployment-time="2930" object-type="user" name="SiemaApp-ear" directory-deployed="true" location="file:/home/debianyisus/Documentos/API/siema/SiemaApp/SiemaApp-ear/target/gfdeploy/SiemaApp-ear/" time-deployed="1543268615034">
-      <property name="archiveType" value="ear"></property>
-      <property name="cdiDevModeEnabled" value="false"></property>
-      <property name="isComposite" value="true"></property>
-      <property name="appLocation" value="file:/home/debianyisus/Documentos/API/siema/SiemaApp/SiemaApp-ear/target/gfdeploy/SiemaApp-ear/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="101139649133150208"></property>
-      <property name="defaultAppName" value="SiemaApp-ear"></property>
-      <module name="SiemaApp-ejb-1.0-SNAPSHOT.jar">
-        <engine sniffer="cdi"></engine>
-        <engine sniffer="ejb"></engine>
-        <engine sniffer="security"></engine>
-        <engine sniffer="jpa"></engine>
-        <property name="org.glassfish.persistence.app_name_property" value="SiemaApp-ear"></property>
-      </module>
-      <module name="SiemaApp-web-1.0-SNAPSHOT.war">
-        <engine sniffer="cdi"></engine>
-        <engine sniffer="security"></engine>
-        <engine sniffer="web"></engine>
-      </module>
-      <engine sniffer="ear"></engine>
-    </application>
-  </applications>
+  <applications></applications>
 </domain>
