@@ -11,8 +11,8 @@ import java.util.List;
  *
  * @author debianyisus
  */
-public interface AbstractFacadeInterface <T>{
-    
+public interface AbstractFacadeInterface<T> {
+
     T create(T entity);
 
     T edit(T entity);
@@ -27,12 +27,13 @@ public interface AbstractFacadeInterface <T>{
 
     T find(Object id);
 
-    List <T> findAll();
+    List<T> findAll();
 
-    List <T> findRange(int lower, int higher);
+    List<T> findRange(int lower, int higher);
 
     int count();
 
-    List <T> findWithNombre(String name);  
+    List<T> findWithNombre(String name);
 
+    List<T> findWithUsuario(String name);
 }

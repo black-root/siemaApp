@@ -7,6 +7,7 @@ package ues.edu.sv.api2018.wr.rest.server;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,9 +17,11 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import ues.edu.api2018.entities.ProfesionalSalud;
@@ -165,6 +168,25 @@ public class ProfesionalSaludRest implements Serializable {
             }
         }
         return new ProfesionalSalud();
+    }
+
+    //metodo para buscar usuario
+   @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("usuario/{text}")
+    public Response findByLike(@DefaultValue("") @PathParam("text") String text) {
+        if (!text.isEmpty()) {
+            try {
+                List<ProfesionalSalud> salida = this.profesionalSaludFacade.findWithUsuario(text);
+                if (salida != null) {
+                    return Response.status(Response.Status.OK).entity(salida).build();
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(getClass().getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            }
+        }
+        return Response.status(Response.Status.NOT_FOUND).header("Registros No Encontrados", 0).build();
+
     }
 
 }
