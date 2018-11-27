@@ -1,0 +1,1 @@
+aqui va todo el frontend o los archivos que gridbox genere, en todo caso es la rama para el frontend.
