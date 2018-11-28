@@ -54,7 +54,7 @@ public abstract class AbstractFacade<T> {
             return null;
         }
     }
-    @PreDestroy  
+    //@PreDestroy  
     public T find(Object id) {
         try {
             if (id != null) {

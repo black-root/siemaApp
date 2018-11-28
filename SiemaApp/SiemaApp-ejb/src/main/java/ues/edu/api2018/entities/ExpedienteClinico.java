@@ -50,7 +50,7 @@ public class ExpedienteClinico implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_expediente_clinico")
-    private Long idExpedienteClinico;
+    private Integer idExpedienteClinico;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_registro")
@@ -76,22 +76,22 @@ public class ExpedienteClinico implements Serializable {
     public ExpedienteClinico() {
     }
 
-    public ExpedienteClinico(Long idExpedienteClinico) {
+    public ExpedienteClinico(Integer idExpedienteClinico) {
         this.idExpedienteClinico = idExpedienteClinico;
     }
 
-    public ExpedienteClinico(Long idExpedienteClinico, Date fechaRegistro, boolean estadoExpediente, String observaciones) {
+    public ExpedienteClinico(Integer idExpedienteClinico, Date fechaRegistro, boolean estadoExpediente, String observaciones) {
         this.idExpedienteClinico = idExpedienteClinico;
         this.fechaRegistro = fechaRegistro;
         this.estadoExpediente = estadoExpediente;
         this.observaciones = observaciones;
     }
 
-    public Long getIdExpedienteClinico() {
+    public Integer getIdExpedienteClinico() {
         return idExpedienteClinico;
     }
 
-    public void setIdExpedienteClinico(Long idExpedienteClinico) {
+    public void setIdExpedienteClinico(Integer idExpedienteClinico) {
         this.idExpedienteClinico = idExpedienteClinico;
     }
 
